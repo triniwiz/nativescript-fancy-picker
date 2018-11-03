@@ -71,9 +71,13 @@ export function loaded(args) {
 
 export function itemTapped(args) {
     const index = args.index;
+    const selectedKeys = Object.keys(itemSelected);
     if (!!itemSelected[index]) {
-        itemSelected[index] = false;
+        delete itemSelected[index];
     } else {
+        if (selectedKeys.length === maxCount) {
+            return;
+        }
         itemSelected[index] = true;
     }
     const listView: FancyListView = page.getViewById('listView');
@@ -91,6 +95,7 @@ export function onNavigatingTo(args) {
     const context = args.context;
     image = !!context.image;
     video = !!context.video;
+    maxCount = context.maxCount;
     page = args.object;
     list = new ObservableArray([]);
     vm = fromObject({

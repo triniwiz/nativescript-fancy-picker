@@ -1,0 +1,33 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatingTo="onNavigatingTo"
+      xmlns:ui="nativescript-fancy-list-view"
+loaded="loaded"
+>
+    <ActionBar backgroundSpanUnderStatusBar="true" title="{{ title }}" flat="true">
+
+        <NavigationButton visibility="{{!isIOS ? 'collapse': 'visible'}}" text="Go Back"
+                          android.systemIcon="ic_menu_back" tap="goToHome"/>
+
+        <ActionItem visibility="{{ !isIOS ? 'collapse': 'visible'}}" ios.systemIcon="0" ios.position="right"
+                    tap="done"/>
+    </ActionBar>
+
+      <ui:FancyListView id="listView" itemTemplateSelector="itemTemplateSelector" itemTap="itemTapped" orientation="vertical" height="100%" items="{{items}}" id="listView" layoutType="grid" spanCount="3">
+          <FancyListView.itemTemplates>
+              <template key="selected">
+                  <GridLayout>
+                      <Image stretch="aspectFill" height="100" width="100" src="{{src}}"/>
+                      <Label height="100" width="100" backgroundColor="#80000000"></Label>
+                      <Image height="50" src="{{ $parents['FancyListView'].checkIcon }}"></Image>
+                  </GridLayout>
+              </template>
+              <template key="not-selected">
+                  <GridLayout>
+                      <Image stretch="aspectFill" height="100" width="100" src="{{src}}"/>
+                  </GridLayout>
+              </template>
+          </FancyListView.itemTemplates>
+
+        </ui:FancyListView>
+
+</Page>

@@ -1,0 +1,12 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page">
+  <StackLayout class="p-20">
+    <Button text="Show Gallery Picker" tap="showGalleryPicker"/>
+    <Button text="Show Photo Picker" tap="showPhotoPicker"/>
+    <Button text="Show Video Picker" tap="showVideoPicker"/>
+    <Button text="Show Camera Picker" tap="showCameraPicker"/>
+    <Button text="Show Photo Camera Picker" tap="showPhotoCameraPicker"/>
+    <Button text="Show Video Camera Picker" tap="showVideoCameraPicker"/>
+    <Button text="Show File Picker" tap="showFilePicker"/>
+    <Button text="Show Audio Picker" tap="showAudioPicker"/>
+  </StackLayout>
+</Page>
